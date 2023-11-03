@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Italianno&display=swap');
+
+/* ----------------------------------------------- */
+/* Escritorio (XL revisamos de 1366px en adelante) */
+/* ----------------------------------------------- */
+
+:root {
+    --first_color: #00BCD4;
+    --second_color: #FFD700;
+    --third_color: #F5F5F5;
+    --fourth_color: #87CEEB;
+}
+
+/* Estilos generales */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    /* PARA EL TITULO ---- font-family: 'Italianno', cursive; */
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* cabecera */
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* ya que se usa position fixed se deben especificar coordenadas */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 100;
+}
+
+.header .cont-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--second_color)
+}
+
+.header .cont-logo img{
+    height: 100px;
+}
+
+.header .cont-logo p {
+    font-size: 35px;
+    font-family: 'Italianno', cursive;
+    font-weight: bold;
+}
+
+.header .nav-bar a {
+    border: 2px solid var(--first_color);
+    padding: 3px 10px;
+    border-radius: 10px;
+    color: var(--first_color);
+    font-size: 20px;
+    margin-right: 10px;
+    transition: 0.5s all;
+
+}
+
+.header .nav-bar a:hover {
+    background: var(--first_color);
+    color: var(--third_color);
+    font-weight: bold;
+}
+
+.navbar-mobile {
+    display: none;
+}
+
+/* Banner */
+.banner {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(120deg, var(--third_color) 60%, var(--fourth_color) 40%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.banner .banner-cont {
+    width: fit-content;
+}
+
+.banner .banner-cont h3 {
+    font-size: 40px;
+    color: var(--first_color)
+}
+
+.banner .banner-cont h2 {
+    font-size: 90px;
+    color: var(--second_color)
+}
+
+.banner .banner-cont p {
+    color: #9e9898;
+    font-size: 18px;
+    width: 600px;
+    margin-bottom: 40px;
+}
+
+.banner .banner-cont .btn-home {
+    background: var(--fourth_color);
+    padding: 10px 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--third_color);
+    border-radius: 6px;
+    font-size: 20px;
+    border: 2px solid var(--first_color);
+    transition: 0.3s;
+}
+
+.banner .banner-cont .btn-home:hover {
+    background: transparent;
+    color: var(--first_color)
+}
+
+.banner .banner-img img {
+    max-width: 700px;
+    width: 95;
+    margin-top: 100px;
+    animation: animation-img-banner 40s ease-in-out infinite;
+}
+
+/* ----------------------------------------------- */
+/* Moviles (Revisamos desde 768px o menos) */
+/* ----------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--third_color);
+    }
+
+    .header .nav-bar {
+        display: none;
+    }
+
+    .navbar-mobile {
+        position: fixed;
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 200;
+        background: var(--fourth_color);
+    }
+
+    .navbar-mobile a {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        padding: 10px;
+        background: var(--third_color);
+        border: 2px solid var(--third_color);
+        color: var(--first_color);
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-mobile a:hover {
+        background-color: var(--second_color);
+        border-color: var(--second_color);
+        color: #131313;
+        transition: 0.4s;
+    }
+
+    .header .cont-logo img {
+        height: 80px;
+    }
+
+    .header .cont-logo p {
+        font-size: 24px;
+    }
+
+    .banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 150px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .banner .banner-cont {
+        width: 100%;
+        padding: 20px
+    }
+
+    .banner .banner-cont h3 {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+
+    .banner .banner-cont h2 {
+        font-size: 50px;
+    }
+
+    .banner .banner-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .banner .banner-img img{
+        width: 90%
+    }
+}
+
+@keyframes animation-img-banner {
+    100% {
+        transform: rotate(360deg);
+    }
+}
